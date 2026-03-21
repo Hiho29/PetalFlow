@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Petal Flow 🌹</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: linear-gradient(135deg, #ff7eb3, #ff4f81);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      text-align: center;
+      background: rgba(0,0,0,0.3);
+      padding: 30px;
+      border-radius: 15px;
+      width: 300px;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: white;
+      color: #ff4f81;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    input {
+      display: block;
+      width: 90%;
+      margin: 10px auto;
+      padding: 8px;
+      border-radius: 8px;
+      border: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>🌹 Petal Flow</h2>
+
+  <!-- Главное меню -->
+  <div id="mainMenu">
+    <button onclick="showLogin()">Войти</button>
+    <button onclick="showRegister()">Регистрация</button>
+  </div>
+
+  <!-- Вход -->
+  <div id="loginForm" class="hidden">
+    <h3>Вход</h3>
+    <input type="text" id="loginName" placeholder="Имя">
+    <input type="password" id="loginPass" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+    <button onclick="back()">Назад</button>
+  </div>
+
+  <!-- Регистрация -->
+  <div id="registerForm" class="hidden">
+    <h3>Регистрация</h3>
+    <input type="text" id="regName" placeholder="Имя">
+    <input type="password" id="regPass" placeholder="Пароль">
+    <button onclick="register()">Создать</button>
+    <button onclick="back()">Назад</button>
+  </div>
+</div>
+
+<script>
+  function showLogin() {
+    document.getElementById("mainMenu").classList.add("hidden");
+    document.getElementById("loginForm").classList.remove("hidden");
+  }
+
+  function showRegister() {
+    document.getElementById("mainMenu").classList.add("hidden");
+    document.getElementById("registerForm").classList.remove("hidden");
+  }
+
+  function back() {
+    document.getElementById("loginForm").classList.add("hidden");
+    document.getElementById("registerForm").classList.add("hidden");
+    document.getElementById("mainMenu").classList.remove("hidden");
+  }
+
+  function login() {
+    const name = document.getElementById("loginName").value;
+    alert("Привет, " + name + "! (вход работает)");
+  }
+
+  function register() {
+    const name = document.getElementById("regName").value;
+    alert("Аккаунт создан для: " + name);
+  }
+</script>
+
+</body>
+</html>
