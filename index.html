@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Сигнал — прототип мессенджера</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Экран входа: просто имя, без пароля и регистрации ── -->
+  <div id="join-screen" class="screen">
+    <div class="join-card">
+      <div class="join-mark">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+      <h1>Сигнал</h1>
+      <p class="join-sub">Прототип мессенджера. Один эфир — все на связи.</p>
+      <input id="name-input" type="text" placeholder="Как вас называть?" maxlength="30" autocomplete="off" />
+      <button id="join-btn">Выйти на связь</button>
+    </div>
+  </div>
+
+  <!-- ── Экран чата ── -->
+  <div id="chat-screen" class="screen hidden">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <span class="mark-mini"></span>
+        <span>Сигнал</span>
+      </div>
+      <div class="sidebar-status">
+        <span id="conn-dot" class="conn-dot"></span>
+        <span id="conn-text">подключение…</span>
+      </div>
+      <div class="sidebar-section-title">На связи сейчас</div>
+      <ul id="online-list" class="online-list"></ul>
+    </aside>
+
+    <main class="chat-main">
+      <header class="chat-header">
+        <div>
+          <div class="chat-title">Общий эфир</div>
+          <div id="typing-indicator" class="typing-indicator"></div>
+        </div>
+        <div class="chat-me">вы — <span id="me-name"></span></div>
+      </header>
+
+      <div id="messages" class="messages"></div>
+
+      <form id="message-form" class="message-form">
+        <input id="message-input" type="text" placeholder="Передать сообщение…" autocomplete="off" />
+        <button type="submit">Отправить</button>
+      </form>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
